@@ -4,7 +4,7 @@
     <groupId>de.rwth.idsg</groupId>
     <artifactId>steve</artifactId>
     <version>3.3.2</version>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
 
     <organization>
         <name>RWTH Aachen University - Information Systems - Intelligent Distributed Systems Group (IDSG)</name>
@@ -251,18 +251,19 @@
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-war-plugin</artifactId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.1.2</version>
                 <configuration>
-                    <attachClasses>true</attachClasses>
-                    <webXml>target/classes/webapp/WEB-INF/web.xml</webXml>
-                    <webResources>
-                        <resource>
-                            <directory>src/main/resources/webapp</directory>
-                            <filtering>true</filtering>
-                        </resource>
-                    </webResources>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                            <classpathPrefix>libs/</classpathPrefix>
+                            <mainClass>de.rwth.idsg.steve.Application</mainClass>
+                        </manifest>
+                    </archive>
                 </configuration>
             </plugin>
+
             <!-- Pre-compiles JSPs -->
             <plugin>
                 <groupId>org.eclipse.jetty</groupId>
