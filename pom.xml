@@ -588,7 +588,6 @@
             <groupId>org.slf4j</groupId>
             <artifactId>jcl-over-slf4j</artifactId>
             <version>1.7.28</version>
-            <scope>runtime</scope>
         </dependency>
         <dependency>
             <groupId>com.lmax</groupId>
